@@ -8,12 +8,13 @@ The user will then be prompted to choose the number of passwords they want to ge
 This is an object oriented program that uses JavaScript classes.
 HTML and CSS are used to create the user interface.
 
-##Link to Program:
-# Link: 
-[https://github.com/Niksharpkings/password-generator]
-[https://niksharpkings.github.io/password-generator/]
-https://niksharpkings.github.io/password-generator/
-[![image](https://user-images.githubusercontent.com/67552318/169494788-8211e5a8-c39d-4a5f-8219-19eee98f9d5f.png)
+# Link to Program:
+## Link: 
+- ##### Github: https://github.com/Niksharpkings/password-generator]
+- ##### Github Sites: https://niksharpkings.github.io/password-generator/]
+
+## Site
+![image](https://user-images.githubusercontent.com/67552318/169494788-8211e5a8-c39d-4a5f-8219-19eee98f9d5f.png)
 
 # Language: HTML, CSS, JavaScript, Markdown
 # Path: README.md
