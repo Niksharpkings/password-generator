@@ -1,61 +1,85 @@
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
+//querySelector to get elements from the DOM and store them in variables for use in the script file
+var generateBtn = document.querySelector("#generate"); //select generate button and add event listener to it to call writePassword function when clicked
+var passwordText = document.querySelector("#password"); // Write password to the #password input box when the generate button is clicked 
+var copyBtn = document.querySelector("#copy"); //select copy button and add event listener to it to call copyPassword function when clicked
 
-const generatePassword = () => {  //const is used to declare a variable that will not change
-  //prompt for password criteria
-  const length = prompt("How many characters would you like your password to be? (8-128)");  //prompt for length of password
-  const lowercase = confirm("Would you like to include lowercase letters?"); //prompt for lowercase letters
-  const uppercase = confirm("Would you like to include uppercase letters?"); //prompt for uppercase letters
-  const numeric = confirm("Would you like to include numbers?"); //prompt for numbers
-  const special = confirm("Would you like to include special characters?"); //prompt for special characters
-  //validate password criteria
-  if (length < 8 || length > 128) {  //if length is less than 8 or greater than 128
-    alert("Password must be between 8 and 128 characters"); //alert user
-    return; //exit function
-  } else if (lowercase === false && uppercase === false && numeric === false && special === false) { //if no criteria is selected
-    alert("You must select at least one criteria"); //alert user
-    return; //exit function
-  }  //if criteria is selected
-  //generate password
-  let password = ""; //create empty string
-  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;':,./<>?"; //create string of possible characters
-  //add criteria to password
-  for (let i = 0; i < length; i++) { //for loop to add criteria to password
-    password += possible.charAt(Math.floor(Math.random() * possible.length)); //add random character from possible to password
-  }  //end for loop
-  //return password
+//Hitting the button will call the writePassword function and display the password in the #password input box 
+generateBtn.addEventListener("click", writePassword); //querySelector to get elements from the DOM and store them in variables for use in the script file
+copyBtn.setAttribute("disabled", "disabled"); //add disabled attribute to copy button
+
+
+//Setting up the criteria selection chooses for password generation. At least one criteria must be selected. Otherwise, an alert will be displayed. If more then one is selected merge them together, if one or more is not selected merge the rest together.
+const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz"; //create string of lowercase characters
+const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create string of uppercase characters
+const numericCharacters = "0123456789"; //create string of numeric characters
+const specialCharacters = "!@#$%^&*()_+-=[]{}|;':,./<>?"; //create string of special characters
+  
+function generatePassword() { //function to generate password
+  var passwordLength = prompt("How long would you like your password to be? (8-128 characters)"); //prompt user for password length
+  if (isNaN(passwordLength)) { //if passwordLength is not a number
+    alert("❗❗❗Warning❗❗❗ ⚠ Please Enter A Numerical Characters Only."); //alert user
+    // #password input box will be blank and copy button will be disabled 
+    //write  "Please enter a numeric." to #password input box
+    password = passwordText.value = "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ Use Numerical Characters Only❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
+    return password & copyBtn.setAttribute("disabled"); //return to the function
+  } //end if
+  if (passwordLength < 8 || passwordLength > 128) { //if passwordLength is less than 8 or greater than 128
+    alert("❗❗❗Warning❗❗❗ ⚠ Please enter a number between 8 and 128 or ELSE❗❗❗ w(ﾟДﾟ)w"); //alert user
+    // #password input box will say "please enter a number between 8 and 128" and copy button will be disabled
+    password = passwordText.value = "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ USE NUMBER BETWEEN 8 and 💯2️⃣8️⃣❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🆗👁‍🗨〰👁‍🗨🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
+    return password & copyBtn.setAttribute("disabled"); //return to the function
+  } //end if
+  var lowerCase = confirm("Would you like lowercase characters?"); //confirm user wants lowercase characters
+  var upperCase = confirm("Would you like uppercase characters?"); //confirm user wants uppercase characters
+  var numeric = confirm("Would you like numeric characters?"); //confirm user wants numeric characters
+  var special = confirm("Would you like special characters?"); //confirm user wants special characters
+  if (lowerCase === false && upperCase === false && numeric === false && special === false) { //if none of the criteria are selected
+    alert("❗❗❗Warning❗❗❗ ⚠ OHREALLY!!! You Must 🆗 to atleast one character type! Now Go back and do it again and this time hit okay, okay!!  "); //alert user
+    // #password input box will say "please select at least one criteria" and copy button will be disabled
+    password = passwordText.value = "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ You think you soo smmmaarrrt! No you NOT!!! Go BACK and do it again❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🆗👁‍🗨〰👁‍🗨🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
+    return password & copyBtn.setAttribute("disabled"); //return to the function
+  } //end if
+  var password = ""; //create empty string to store password
+  var criteria = ""; //create empty string to store criteria
+  if (lowerCase === true) { //if user wants lowercase characters
+    criteria += lowerCaseCharacters; //add lowercase characters to criteria
+  } //end if
+  if (upperCase === true) { //if user wants uppercase characters
+    criteria += upperCaseCharacters; //add uppercase characters to criteria
+  } //end if
+  if (numeric === true) { //if user wants numeric characters
+    criteria += numericCharacters; //add numeric characters to criteria
+  } //end if
+  if (special === true) { //if user wants special characters
+    criteria += specialCharacters; //add special characters to criteria
+  } //end if
+  for (var i = 0; i < passwordLength; i++) { //for loop to generate password
+    password += criteria.charAt(Math.floor(Math.random() * criteria.length)); //add random character from criteria to password
+  } //end for
   return password; //return password
-}  //end generatePassword
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate"); //get reference to generate button
+} //end generatePassword
+  
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);  //add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
+  // Add event listener to copy button
+copyBtn.addEventListener("click", copyPassword);
 
-// Write password to the #password input
-function writePassword() { //function to write password to page
-  var password = generatePassword(); //call generatePassword function
-  var passwordText = document.querySelector("#password"); //get reference to password text
+    
+function copyPassword() { //function to copy password to clipboard
+  var copyText = document.querySelector("#password"); //select #password input box
+  copyText.select(); //select the text in the #password input box
+  document.execCommand("copy"); //copy the text in the #password input box
+  alert("Password copied to clipboard."); //alert user
+} //end copyPassword
 
-  passwordText.value = password; //write password to text box
-
+// Write password to the #password input box when the generate button is clicked
+function writePassword() { //function to write password to #password input box
+  var password = generatePassword();//call generatePassword function and store result in variable 'password' 
+  passwordText.value = password; //write password to #password input box
+  if (passwordText.value = password) { //if password is written to #password input box
+    copyBtn.removeAttribute("disabled"); //remove disabled attribute from copy button
+  }
 } //end writePassword
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);  //add event listener to generate button
