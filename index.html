@@ -10,11 +10,11 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Password Generator</h1>
+        <h1>Random Password Generator</h1>
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h2>Lets Generate A Password</h2>
         </div>
         <div class="card-body">
           <textarea
@@ -25,12 +25,20 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-          
-            <button id="copy" class="btn">Copy To Clipboard</button>
-          
+          <button id="generate" class="btn" type="button">» Generate Password «</button>
+          <button id="copy" class="btn" type="button">» Copy To Clipboard «</button>
         </div>
-        
+        <div id="message">
+          <h4>Password Contant & Data:</h4>
+            <textarea
+            readonly
+            type="text"
+            id="messageData"
+            class="caseSet"
+            placeholder="Generate Password to See Password Contant & Data Here"
+            aria-label="passward data">
+          </textarea>
+        </div>
       </div>
     </div>
     <script src="./assets/js/script.js"></script>

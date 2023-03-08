@@ -1,85 +1,149 @@
-//querySelector to get elements from the DOM and store them in variables for use in the script file
-var generateBtn = document.querySelector("#generate"); //select generate button and add event listener to it to call writePassword function when clicked
-var passwordText = document.querySelector("#password"); // Write password to the #password input box when the generate button is clicked 
-var copyBtn = document.querySelector("#copy"); //select copy button and add event listener to it to call copyPassword function when clicked
+//! Password Generator Version 2 - Niksharpkings
 
-//Hitting the button will call the writePassword function and display the password in the #password input box 
-generateBtn.addEventListener("click", writePassword); //querySelector to get elements from the DOM and store them in variables for use in the script file
-copyBtn.setAttribute("disabled", "disabled"); //add disabled attribute to copy button
+//^ querySelectors to get elements from the DOM and store them in variables for use in the script file
+const generateBtn = document.querySelector("#generate");
+const passwordText = document.querySelector("#password");
+const copyBtn = document.querySelector("#copy");
+let messageData = document.querySelector("#messageData");
 
+//^ Global variables
+//Assign Variable to check if criteria is met, set to false at start
+let criteriaPass = 0;
+let useLowerCase;
+let useUpperCase;
+let useNumeric;
+let useSpecial;
+let passwordLength;
 
-//Setting up the criteria selection chooses for password generation. At least one criteria must be selected. Otherwise, an alert will be displayed. If more then one is selected merge them together, if one or more is not selected merge the rest together.
-const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz"; //create string of lowercase characters
-const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create string of uppercase characters
-const numericCharacters = "0123456789"; //create string of numeric characters
-const specialCharacters = "!@#$%^&*()_+-=[]{}|;':,./<>?"; //create string of special characters
-  
-function generatePassword() { //function to generate password
-  var passwordLength = prompt("How long would you like your password to be? (8-128 characters)"); //prompt user for password length
-  if (isNaN(passwordLength)) { //if passwordLength is not a number
-    alert("❗❗❗Warning❗❗❗ ⚠ Please Enter A Numerical Characters Only."); //alert user
-    // #password input box will be blank and copy button will be disabled 
-    //write  "Please enter a numeric." to #password input box
-    password = passwordText.value = "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ Use Numerical Characters Only❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
-    return password & copyBtn.setAttribute("disabled"); //return to the function
-  } //end if
-  if (passwordLength < 8 || passwordLength > 128) { //if passwordLength is less than 8 or greater than 128
-    alert("❗❗❗Warning❗❗❗ ⚠ Please enter a number between 8 and 128 or ELSE❗❗❗ w(ﾟДﾟ)w"); //alert user
-    // #password input box will say "please enter a number between 8 and 128" and copy button will be disabled
-    password = passwordText.value = "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ USE NUMBER BETWEEN 8 and 💯2️⃣8️⃣❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🆗👁‍🗨〰👁‍🗨🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
-    return password & copyBtn.setAttribute("disabled"); //return to the function
-  } //end if
-  var lowerCase = confirm("Would you like lowercase characters?"); //confirm user wants lowercase characters
-  var upperCase = confirm("Would you like uppercase characters?"); //confirm user wants uppercase characters
-  var numeric = confirm("Would you like numeric characters?"); //confirm user wants numeric characters
-  var special = confirm("Would you like special characters?"); //confirm user wants special characters
-  if (lowerCase === false && upperCase === false && numeric === false && special === false) { //if none of the criteria are selected
-    alert("❗❗❗Warning❗❗❗ ⚠ OHREALLY!!! You Must 🆗 to atleast one character type! Now Go back and do it again and this time hit okay, okay!!  "); //alert user
-    // #password input box will say "please select at least one criteria" and copy button will be disabled
-    password = passwordText.value = "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ You think you soo smmmaarrrt! No you NOT!!! Go BACK and do it again❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🆗👁‍🗨〰👁‍🗨🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
-    return password & copyBtn.setAttribute("disabled"); //return to the function
-  } //end if
-  var password = ""; //create empty string to store password
-  var criteria = ""; //create empty string to store criteria
-  if (lowerCase === true) { //if user wants lowercase characters
-    criteria += lowerCaseCharacters; //add lowercase characters to criteria
-  } //end if
-  if (upperCase === true) { //if user wants uppercase characters
-    criteria += upperCaseCharacters; //add uppercase characters to criteria
-  } //end if
-  if (numeric === true) { //if user wants numeric characters
-    criteria += numericCharacters; //add numeric characters to criteria
-  } //end if
-  if (special === true) { //if user wants special characters
-    criteria += specialCharacters; //add special characters to criteria
-  } //end if
-  for (var i = 0; i < passwordLength; i++) { //for loop to generate password
-    password += criteria.charAt(Math.floor(Math.random() * criteria.length)); //add random character from criteria to password
-  } //end for
-  return password; //return password
-} //end generatePassword
-  
+// Disable the copy button at start
+copyBtn.disabled = true;
 
+//^ Prompt and prep for the password generation in a function expression to generate a random password based on user prompt input of 8-128 characters password lenght and four confirm prompts selections which are if lowercase, uppercase, numeric, and special. Only a number between 8 and 128 can be selected and no less than one confirm questions can be selected or the password will not be generated and the copy to clipboard button will be disabled.
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+const passwordPromp = function () {
+  // Reset the textarea and copy button
+  passwordText.value = "";
+  messageData.value = "";
+  copyBtn.disabled = true;
+  criteriaPass = 0;
 
-  // Add event listener to copy button
-copyBtn.addEventListener("click", copyPassword);
+  // Get the desired length of the password from the user and check if the user input is a numerical only with a value between 8 and 128. If not, the user will be re-prompted to enter a number between 8 and 128.
 
-    
-function copyPassword() { //function to copy password to clipboard
-  var copyText = document.querySelector("#password"); //select #password input box
-  copyText.select(); //select the text in the #password input box
-  document.execCommand("copy"); //copy the text in the #password input box
-  alert("Password copied to clipboard."); //alert user
-} //end copyPassword
-
-// Write password to the #password input box when the generate button is clicked
-function writePassword() { //function to write password to #password input box
-  var password = generatePassword();//call generatePassword function and store result in variable 'password' 
-  passwordText.value = password; //write password to #password input box
-  if (passwordText.value = password) { //if password is written to #password input box
-    copyBtn.removeAttribute("disabled"); //remove disabled attribute from copy button
+  passwordLength = parseInt(
+    prompt("Enter the desired length of your password (8-128 characters):")
+  );
+  if (passwordLength < 8 || passwordLength > 128) {
+    passwordText.value =
+      "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ USE NUMBER BETWEEN 8 and 💯2️⃣8️⃣❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🆗👁‍🗨〰👁‍🗨🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
+    copyBtn.disabled = true;
+    criteriaPass = 0;
+    alert(
+      "❗❗❗Warning❗❗❗ ⚠ Please enter a number between 8 and 128 or ELSE❗❗❗ w(ﾟДﾟ)w"
+    );
+  } else if (isNaN(passwordLength)) {
+    passwordText.value =
+      "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ Use Numerical Characters Only❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
+    copyBtn.disabled = true;
+    criteriaPass = 0;
+    alert("❗❗❗Warning❗❗❗ ⚠ Please Enter A Numerical Characters Only.");
+  } else {
+    confirmCharCaseSet();
   }
-} //end writePassword
+};
+
+const confirmCharCaseSet = function () {
+  // Get the user's character preferences
+  useLowerCase = confirm("Do you want to include lowercase characters?");
+  useUpperCase = confirm("Do you want to include uppercase characters?");
+  useNumeric = confirm("Do you want to include numeric characters?");
+  useSpecial = confirm("Do you want to include special characters?");
+
+  // Ensure that the user selected at least one character set
+  if (!useLowerCase && !useUpperCase && !useNumeric && !useSpecial) {
+    copyBtn.disabled = true;
+    criteriaPass = 0;
+    passwordText.value =
+      "💥🔥┗(╬◝∯◜)╯⚠ Warning❗ You think you soo smmmaarrrt! No you NOT!!! Go BACK and do it again❗❗❗ 💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🆗👁‍🗨〰👁‍🗨🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥💥🔥💥🔥💥🔥🔥💥🔥";
+    alert(
+      "❗❗❗Warning❗❗❗ ⚠ OHREALLY!!! You Must 🆗 to at least one out of four type of case set(s)! Now Go back and do it again and this time hit okay, okay!!"
+    ); //alert user
+  } else {
+    criteriaPass = 1;
+    generatePassword();
+  }
+};
+
+const generatePassword = function () {
+  //^ Local variables - Acceptable characters for password generation
+  const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz"; //create string of lowercase characters
+  const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create string of uppercase characters
+  const numericCharacters = "0123456789"; //create string of numeric characters
+  const specialCharacters = "!@#$%^&*()_+-=[]{}|;':,./<>?"; //create string of special characters
+
+  if (criteriaPass != 0) {
+    let mergedPassword = "";
+    if (useLowerCase === true) {
+      mergedPassword += lowerCaseCharacters;
+    }
+    if (useUpperCase === true) {
+      mergedPassword += upperCaseCharacters;
+    }
+    if (useNumeric === true) {
+      mergedPassword += numericCharacters;
+    }
+    if (useSpecial === true) {
+      mergedPassword += specialCharacters;
+    }
+    let password = "";
+    for (let i = 0; i < passwordLength; i++) {
+      password += mergedPassword.charAt(
+        Math.floor(Math.random() * mergedPassword.length)
+      );
+    }
+    // Check if the password meets the selected criteria
+const hasLowerCase = /[a-z]/.test(password);
+const hasUpperCase = /[A-Z]/.test(password);
+const hasNumeric = /\D/.test(password);
+const hasSpecial = /[!@#$%^&*()_+\-=[\]{}|;':",./<>?]/.test(password);
+
+// Display the generated password and the selected criteria
+passwordText.value = `Generated password: ${password}\n\n` +
+  `Selected length: ${passwordLength}\n` +
+  `Meets length requirements: ${password.length === passwordLength}\n` +
+  `Includes lowercase characters: ${hasLowerCase}\n` +
+  `Includes uppercase characters: ${hasUpperCase}\n` +
+  `Includes numeric characters: ${hasNumeric}\n` +
+  `Includes special characters: ${hasSpecial}\n`;
+const passwordAlert = passwordText.value
+    alert(passwordAlert);
+    messageData.value = passwordText.value;
+    passwordText.value = password;
+    copyBtn.disabled = false;
+  }
+};
+
+// Function Declaration named copyPassword will Copy the password to a users clipboard
+function copyPassword() {
+  document.getElementById("copy").onclick = function () {
+    const copyText = document.getElementById("password");
+    copyText.select(); //select text
+    copyText.setSelectionRange(0, 99999); //For mobile devices
+    copyTextToClipboard(copyText.value); //call copyTextToClipboard function
+  };
+  async function copyTextToClipboard(copyText) {
+    try {
+      await navigator.clipboard.writeText(copyText);
+      alert("Password copied to clipboard."); //alert user
+      console.log("Text copied to clipboard");
+    } catch (err) {
+      alert("'Error in copying text."); //alert user
+      console.error("Error in copying text: ", err);
+    }
+  }
+}
+
+// Generate the password when the event listener  click event is triggered on the generate button and the function expression is activated.
+generateBtn.addEventListener("click", passwordPromp);
+
+// Copy the generated password to a clipboard event listener button that is connected to the copyPassword function declaration.
+copyBtn.addEventListener("click", copyPassword);
