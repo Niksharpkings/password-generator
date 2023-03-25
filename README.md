@@ -1,3 +1,5 @@
+![](filesystem:chrome-extension://fdpohaocaechififmbbbbbknoalclacl/persistent/screencapture-niksharpkings-github-io-password-generator-2023-03-25-13_53_58.png "Captured screenshot")
+
 # Password Generator - Version 2.1
 
 Generating a password when the user presses "Generate Password". A JavaScript prompt will ask the user will then be prompted to choose the length the password they want to generate, from 8 characters to 128 characters. The user will then be prompted to choose the type of characters they want to use. The user will then be prompted to choose the number of passwords they want to generate.
@@ -10,13 +12,25 @@ The user will then be prompted to choose the number of passwords they want to ge
 This is an object oriented program that uses JavaScript classes.
 HTML and CSS are used to create the user interface.
 
-##Link to Program:
+## Link to Program:
+
 [GitHub Repo Link](https://github.com/Niksharpkings/password-generator)
 [GitHub Pages Live Depoloyed Site Link](https://niksharpkings.github.io/password-generator/)
-# Language: html5,css3,js,json,git,markdown,txt
+
+### Site View:
+
+![1679777918508](image/README/1679777918508.png)
 
 
-### Criteria for Generating the Password:
+## Site View (Active Password Generated):
+
+![1679778089495](image/README/1679778089495.png)
+
+### Language:
+
+ html5, css3, js, json, git, markdown, & txt
+
+#### Criteria for Generating the Password:
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
@@ -35,6 +49,7 @@ HTML and CSS are used to create the user interface.
 // THEN the password is either displayed in an alert or written to the page
 
 ## Dir/Path Tree Structure:
+
 ```
 password-generator
 ├─ .git
@@ -57,6 +72,7 @@ password-generator
 ```
 
 ## Version Patch Notes:
+
 ```
 V2.0.0 - | March 24, 2023 | Revamped version - Redid the assignment from scratch and added my own twist to it.
 
