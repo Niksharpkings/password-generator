@@ -1,6 +1,6 @@
 ![](filesystem:chrome-extension://fdpohaocaechififmbbbbbknoalclacl/persistent/screencapture-niksharpkings-github-io-password-generator-2023-03-25-13_53_58.png "Captured screenshot")
 
-# Password Generator - Version 2.1
+# Password Generator - Version 2.0.0
 
 Generating a password when the user presses "Generate Password". A JavaScript prompt will ask the user will then be prompted to choose the length the password they want to generate, from 8 characters to 128 characters. The user will then be prompted to choose the type of characters they want to use. The user will then be prompted to choose the number of passwords they want to generate.
 The user will then be prompted to choose the number of passwords they want to generate.
