@@ -1,16 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en" dir="ltr" contenteditable="false">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <META charset="utf-8">
+    <META name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ńἱĸἱ৳α Shârρἱo's Password Generator</title>
+    <META http-equiv="Content-Security-Policy"
+      content="
+          connect-src * 'self' data: https:;
+          font-src * 'self' data: https:;
+          frame-src * 'self' data: https:;
+          img-src * 'self' data: https:;
+          manifest-src * 'self' data: https:;
+          media-src * 'self' data: https:;
+          base-uri * 'self' data: https:;
+          object-src * 'self' data: https:;
+          script-src * 'self' data: https:;
+          script-src-elem 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=';
+          script-src-attr * 'self' data: https:;
+          style-src-elem 'self' 'sha256-wG7aBvp9/yHanLKIFezWx95YfJa4kMhd7vcw9pyWgqE=';
+          style-src-attr * 'self' data: https:;
+          worker-src * 'self' data: https:">
+    <META name="robots" content="index, nofollow">
+    <META name="googlebot" content="index, nofollow">
+    <META name="google" content="index, nofollow">
+    <META name="google-site-verification" content="EauQU7rPJCYYGsyqxpmZv-hDfiGlYHLUu3GB7d_SBTM">
+    <META name="keywords" lang="en-us" content="Ńἱĸἱ৳α Shârρἱo's, UCLAx-U2, niksharpkings, Password, Generator, HTML, CSS, Json, JS, gitignore">
+    <META name="rating" content="General">
+    <META name="publisher" content="Ńἱĸἱ৳α 'Niksharpkings' Shârρἱo's">
+    <META name="designer" content="Ńἱĸἱ৳α 'Niksharpkings' Shârρἱo's">
+    <META name="Author" lang="en-us" content="Ńἱĸἱ৳α Shârρἱo">
+    <META name="copyright" content="&copy; 2023 Ńἱĸἱ৳α 'Niksharpkings' Shârρἱo's">
+    <META name="date" content="2023-03-23T11:52:00+00:00">
+    <META name="description" content="Ńἱĸἱ৳α Shârρἱo's Password Generator">
+    <META name="generator" content="Visual Studio Code">
+    <META name="msvalidate.01" content="8B0BE8DDD2D4F343929BA403DD0CF7A2">
+    <link rel="apple-touch-icon" href="./assets/manifestIcon/maskable_icon_x128.png">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json" type="application/manifest+json">
+    <link title="stylesheet" media="only screen and (color)" rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1>Random Password Generator</h1>
+        <nav>
+          <h1>Random Password Generator</h1>
+          <ul>
+            <li><a href="./index.html#about-me">About Me</a></li>
+            <li><a href="./index.html#projects">Projects</a></li>
+            <li><a href="./index.html#contact-me">Contact Info</a></li>
+          </ul>
+          <ul>
+            <li><a title="GitHub account" hreflang=en type="text/html" class="tooltip-nav" href="https://github.com/Niksharpkings/" target="_blank" rel="noopener noreferrer">
+                  GitHub Account
+                  <span class="tooltiptext-nav">https://github.com/Niksharpkings/</span>
+                </a>
+            </li>
+            <li><a title="Ucla extension website" type="text/html" class="tooltip-nav" href="https://bootcamp.uclaextension.edu/coding/" target="_blank" rel="noopener noreferrer">
+                  UCLA+U2 website
+                  <span class="tooltiptext-nav">https://bootcamp.uclaextension.edu/coding/</span>
+                </a>
+            </li>
+            <li><a title="Privacy Policy" type="text/html" class="tooltip-nav" href="./assets/html/privacy-policy.html" target="_blank" rel="noopener noreferrer help">
+                  Privacy Policy
+                  <span class="tooltiptext-nav">./assets/html/privacy-policy.html</span>
+                </a>
+            </li>
+          </ul>
+        </nav>
       </header>
       <div class="card">
         <div class="card-header">
@@ -32,7 +88,6 @@
           <h4>Password Contant & Data:</h4>
             <textarea
             readonly
-            type="text"
             id="messageData"
             class="caseSet"
             placeholder="Generate Password to See Password Contant & Data Here"
@@ -42,5 +97,6 @@
       </div>
     </div>
     <script src="./assets/js/script.js"></script>
+    <noscript>Your browser does not support JavaScript!</noscript>
   </body>
 </html>

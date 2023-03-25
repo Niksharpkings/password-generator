@@ -11,9 +11,10 @@ This is an object oriented program that uses JavaScript classes.
 HTML and CSS are used to create the user interface.
 
 ##Link to Program:
-[https://github.com/Niksharpkings/password-generator]: # Link:
-[]: # Language: markdown
-[]: # Path: README.md
+[GitHub Repo Link](https://github.com/Niksharpkings/password-generator)
+[GitHub Pages Live Depoloyed Site Link](https://niksharpkings.github.io/password-generator/)
+# Language: html5,css3,js,json,git,markdown,txt
+
 
 ### Criteria for Generating the Password:
 
@@ -32,3 +33,32 @@ HTML and CSS are used to create the user interface.
 // THEN a password is generated that matches the selected criteria
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
+
+## Dir/Path Tree Structure:
+```
+password-generator
+├─ .git
+├─ .gitignore
+├─ assets
+│  ├─ css
+│  │  └─ style.css
+│  ├─ html
+│  │  └─ privacy-policy.html
+│  └─ js
+│     └─ script.js
+├─ CODEOWNERS
+├─ favicon.ico
+├─ index.html
+├─ LICENSE
+├─ manifest.json
+├─ README.md
+└─ robots.txt
+
+```
+
+## Version Patch Notes:
+```
+V2.0.0 - | March 24, 2023 | Revamped version - Redid the assignment from scratch and added my own twist to it.
+
+V1.0.0 - | Initial Release
+```

@@ -1,3 +1,15 @@
+:root {
+  --primary-hsl-color: hsl(0, 100%, 50%);
+  --primary-background-color: #252525;
+  --primary-shadow-color:rgba(219, 25, 25, 0.678) 0px 2px 8px 10px;
+  --secondary-background-color: hsl(0, 0%, 55%);
+  --thr-background-color: #000000;
+  --button-main-color: hsl(360, 91%, 36%);
+  color-scheme: light dark;
+  scrollbar-color: rebeccapurple green;
+  cursor: crosshair;
+}
+
 *,
 *::before,
 *::after {
@@ -7,60 +19,216 @@
 
 html,
 body {
+/*Box model stuff*/
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #252525;
+/*Box model stuff*/
+  background-color: var(--primary-background-color);
 }
 
 .wrapper {
+/*Box model stuff*/
   padding: 30px 20px 0px 20px;
 }
 
 header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(0, 100%, 50%);
-  background-color: #252525;
-  border-bottom: 1px solid hsl(0, 100%, 50%);
-  margin-bottom: 20px;
+  display: flex;
+  /*Positioning stuff*/
+/*Box model stuff*/
+  border-bottom: 5px double var(--primary-hsl-color);
+  background-color: var(--primary-background-color);
+/*Typography stuff*/
   font-weight: bold;
+  text-align: center;
+  color: var(--primary-hsl-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+nav {
+  /*Box model stuff*/
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  /*Typography stuff*/
+  font-size: 20px;
+  text-align: center;
+  text-shadow: var(--thr-background-color);
+}
+
+header nav li {
+  /*Display stuff*/
+  display: inline-block;
+  /*Box model stuff*/
+  margin: 15px;
+  padding: 0px;
+  /*Miscellaneous*/
+  list-style: none;
+}
+
+header nav li a {
+  /*Display stuff*/
+  display: block;
+  /*Positioning stuff*/
+  z-index: 1;
+  /*Box model stuff*/
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline-color: var(--primary-hsl-color);
+  outline-style: double;
+  outline-width: 5px;
+  background-color: var(--thr-background-color);
+  /*Typography stuff*/
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-hsl-color);
+  /*Miscellaneous*/
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+header nav li a:hover {
+  /*Positioning stuff*/
+  z-index: 1;
+  /*Box model stuff*/
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline-color: var(--primary-hex-color);
+  outline-style: dashed;
+  outline-width: 2px;
+  background-color: var(--primary-hex-color);
+  /*Typography stuff*/
+  text-decoration: none;
+  color: var(--secondary-hex-color);
+  /*Miscellaneous*/
+  cursor: pointer;
+  box-shadow: 2px 0px 1px var(--primary-hex-color);
+  transform: scale(0.9) rotate(5deg) translate(10%, 10%);
+  filter: saturate(1) contrast(200%) drop-shadow(5px 5px 2rem var(--secondary-hex-color)) brightness(1) sepia(5%) opacity(95%) hue-rotate(4deg) grayscale(50%) blur(0px) invert(5%);
+}
+
+header nav li a:active {
+  /*Box model stuff*/
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline-color: var(--primary-hex-color);
+  outline-style: dashed;
+  outline-width: 2px;
+  background-color: var(--primary-hex-color);
+  /*Typography stuff*/
+  text-decoration: none;
+  color: var(--secondary-hex-color);
+  /*Miscellaneous*/
+  cursor: pointer;
+  box-shadow: 2px 0px 1px var(--primary-hex-color);
+}
+
+header nav li a:focus {
+  /*Positioning stuff*/
+  z-index: 1;
+  /*Box model stuff*/
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline-color: var(--primary-hex-color);
+  outline-style: dashed;
+  outline-width: 2px;
+  background-color: var(--primary-hex-color);
+  /*Typography stuff*/
+  text-decoration: none;
+  color: var(--secondary-hex-color);
+  /*Miscellaneous*/
+  cursor: pointer;
+  box-shadow: 2px 0px 1px var(--primary-hex-color);
+}
+
+.tooltip-nav {
+  /*Display stuff*/
+  display: inline-block;
+  /*Positioning stuff*/
+  position: relative;
+  /*Box model stuff*/
+  border-bottom: 1px dotted black;
+  /*Typography stuff*/
+  color: var(--primary-hex-color);
+  font-size: 14px;
+}
+
+.tooltip-nav .tooltiptext-nav{
+  /*Positioning stuff*/
+  position: absolute;
+  left: -5%;
+  top: 30px;
+  z-index: 4;
+  /*Box model stuff*/
+  width: auto;
+  padding: 2px 2px;
+  border-radius: 6px;
+  background-color: black;
+  /*Typography stuff*/
+  text-align: center;
+  color: var(--secondary-hex-color);
+  /*Miscellaneous*/
+  visibility: hidden;
+  /* Position the tooltip */
+}
+
+.tooltip-nav:hover .tooltiptext-nav {
+  /*Miscellaneous*/
+  visibility: visible;
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 10px;}
+  box-shadow: var(--primary-shadow-color);
+  background-color: #000000;
+  border: 5px groove #ffffff;
+  margin: 10px;
+  padding: 10px;
+/*Typography stuff*/
+  font-size: 2em;
+  color: #ff0000;
+  text-shadow: 2px 0px 2px #03ca4f;
+}
 
 h2 {
+/*Box model stuff*/
+  margin-bottom: 10px;
+/*Typography stuff*/
   font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .card {
-  background-color: hsl(0, 0%, 55%);
-  background-image: linear-gradient(to bottom right, rgb(206, 206, 206), rgba(77, 77, 77, 0.884));
-  border-radius: 5px;
+/*Box model stuff*/
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 40px;
   border-width: 1px;
-  box-shadow: rgba(219, 25, 25, 0.678) 0px 2px 8px 10px;
-  color: hsl(0, 100%, 50%);
+  border-radius: 5px;
+  background-color: var(--secondary-background-color);
+  background-image: linear-gradient(to bottom right, rgb(206, 206, 206), rgba(77, 77, 77, 0.884));
+/*Typography stuff*/
   font-size: 30px;
   font-weight: bold;
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 30px 40px;
   text-align: center;
-  width: 100%;
+  color: var(--primary-hsl-color);
+/*Miscellaneous*/
+  box-shadow: var(--primary-shadow-color);
 }
 
 .card-header::after {
   content: " ";
   display: block;
   width: 100%;
-  background: #000000;
+  background: var(--thr-background-color);
   height: 2px;
 }
 
@@ -76,7 +244,7 @@ h2 {
   content: " ";
   display: block;
   width: 100%;
-  background: #000000;
+  background: var(--thr-background-color);
   height: 2px;
 }
 
@@ -88,7 +256,7 @@ h2 {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--button-main-color);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: hsl(0, 0%, 100%);
@@ -114,9 +282,9 @@ button[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
   display: block;
   width: 100%;
+  padding: 15px 5px  85px 15px;
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
