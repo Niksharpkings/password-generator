@@ -59,7 +59,6 @@ nav {
   /*Typography stuff*/
   font-size: 20px;
   text-align: center;
-  text-shadow: var(--thr-background-color);
 }
 
 header nav li {
